@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="log_line_search_view_inherit" model="ir.ui.view">
+        <field name="name">Amazon Common Line Form View</field>
+        <field name="model">common.log.lines.ept</field>
+        <field name="inherit_id" ref="common_connector_library.common_log_line_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="filter_write_date" position="after">
+                <filter name="mismatch_details" string="Mismatch Lines" domain="[('mismatch_details','=', True)]"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="log_line_tree_view_inherit" model="ir.ui.view">
+        <field name="name">Amazon Common Line Form View</field>
+        <field name="model">common.log.lines.ept</field>
+        <field name="inherit_id" ref="common_connector_library.common_log_line_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="message" position="after">
+                <field name="mismatch_details"/>
+            </field>
+        </field>
+    </record>
+</odoo>
